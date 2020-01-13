@@ -32,16 +32,34 @@
     body {
       font-size: var(--font-size)
     }
+
+    .icon {
+      width: 1em;
+      height: 1em;
+    }
+
   </style>
 
 </head>
 <body>
 
 <div id="app">
-  <g-button></g-button>
+
+  <g-button>
+    我爱js
+  </g-button>
+  <g-button icon="setting">
+    我爱js
+  </g-button>
+  <g-button icon="setting" icon-postion="right">
+    我爱js
+  </g-button>
+
 </div>
 
 <script src="./src/app.js"></script>
+<script src="//at.alicdn.com/t/font_1607242_48lhgdn64ac.js"></script>
+
 <!--最外层的index.js依赖app.js-->
 </body>
 </html>
