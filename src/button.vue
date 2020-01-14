@@ -10,13 +10,13 @@
 <script>
   export default {
     // props: ['icon', 'iconPosition'],
-    props:{
-      icon:{},
-      loading:{
+    props: {
+      icon: {},
+      loading: {
         type: Boolean,
         default: false
       },
-      iconPosition:{
+      iconPosition: {
         type: String,
         default: 'left',
         validator: function (value) {
@@ -76,7 +76,7 @@
         margin-left: .3em;
       }
     }
-    .loading{
+    .loading {
       animation: spin 2s infinite linear;
     }
   }
