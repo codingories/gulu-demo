@@ -8,8 +8,14 @@
   </button>
 </template>
 <script>
+  // import Vue from 'vue'
+  import Icon from './icon'
+  // Vue.component('g-icon',Icon) // 全局注册的方法不好，该用局部注册
   export default {
     // props: ['icon', 'iconPosition'],
+    components:{
+      'g-icon':Icon
+    },
     props: {
       icon: {},
       loading: {
