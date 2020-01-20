@@ -45,10 +45,7 @@
           }
         };
     ```
-4. 引入 svg symbles 
-   ```
-    <script src="//at.alicdn.com/t/font_1607242_o3jgx8bqvqd.js"></script>
-   ```
+
 ## 文档
 
 ## 提问
