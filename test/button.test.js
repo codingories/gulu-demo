@@ -79,4 +79,4 @@ describe('Button', () => {
     expect(callback).to.have.been.called
 
   })
-})
+});
