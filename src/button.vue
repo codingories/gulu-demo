@@ -16,7 +16,7 @@
 import Icon from "./icon";
 // Vue.component('g-icon',Icon) // 全局注册的方法不好，该用局部注册
 export default {
-  // props: ['icon', 'iconPosition'],
+  name: 'GuluButton',
   components: {
     "g-icon": Icon
   },
@@ -36,7 +36,7 @@ export default {
   }
 };
 </script>
-<style lang="scss">
+<style lang="scss" scoped>
 @keyframes spin {
   0% {
     transform: rotate(0deg);
