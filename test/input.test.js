@@ -1,3 +1,5 @@
+import {describe} from "mocha";
+
 const expect = chai.expect;
 import Vue from 'vue'
 import Input from '../src/Input'
@@ -89,8 +91,5 @@ describe('Input', () => {
         expect(callback).to.have.been.calledWith('hi')
       })
     })
-
-
-
   })
 });
