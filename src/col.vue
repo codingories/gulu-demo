@@ -23,7 +23,6 @@
       offset: {
         type: [Number, String]
       },
-      phone: {type: Object, validator,},
       ipad: {type: Object, validator,},
       narrowPc: {type: Object, validator,},
       pc: {type: Object, validator,},
@@ -36,15 +35,14 @@
     },
     computed: {
       colClass() {
-        let {span, offset, phone, ipad, narrowPc, pc, widePc} = this;
+        let {span, offset, ipad, narrowPc, pc, widePc} = this;
         return [
           span && `col-${span}`,
           offset && `offset-${offset}`,
-          ...(phone && [`col-phone-${phone.span}`]),
-          ...(ipad && [`col-ipad-${ipad.span}`]),
-          ...(narrowPc && [`col-narrow-pc-${narrowPc.span}`]),
-          ...(pc && [`col-pc-${pc.span}`]),
-          ...(widePc && [`col-wide-pc-${widePc.span}`])
+          ...(ipad ? [`col-ipad-${ipad.span}`]:[]),
+          ...(narrowPc ? [`col-narrow-pc-${narrowPc.span}`]:[]),
+          ...(pc ? [`col-pc-${pc.span}`]:[]),
+          ...(widePc ? [`col-wide-pc-${widePc.span}`]:[])
         ]
       },
       colStyle() {
@@ -58,7 +56,7 @@
 </script>
 <style scoped lang="scss">
   .col {
-    height: 100px;
+    height: 30px;
     /*width: 50%;*/
 
     $class-prefix: col-;
@@ -67,25 +65,10 @@
         width: ($n / 24) * 100%
       }
     }
-
     $class-prefix: offset-;
     @for $n from 1 through 24 {
       &.#{$class-prefix}#{$n} {
         margin-left: ($n / 24) * 100%
-      }
-    }
-    @media (max-width: 576px) {
-      $class-prefix: col-phone-;
-      @for $n from 1 through 24 {
-        &.#{$class-prefix}#{$n} {
-          width: ($n / 24) * 100%
-        }
-      }
-      $class-prefix: offset-phone-;
-      @for $n from 1 through 24 {
-        &.#{$class-prefix}#{$n} {
-          margin-left: ($n / 24) * 100%
-        }
       }
     }
     @media (min-width: 577px) and (max-width: 768px) {
@@ -103,13 +86,13 @@
       }
     }
     @media (min-width: 769px) and (max-width: 992px) {
-      $class-prefix: col-narrow-pac-;
+      $class-prefix: col-narrow-pc-;
       @for $n from 1 through 24 {
         &.#{$class-prefix}#{$n} {
           width: ($n / 24) * 100%
         }
       }
-      $class-prefix: offset-narrow-pac-;
+      $class-prefix: offset-narrow-pc-;
       @for $n from 1 through 24 {
         &.#{$class-prefix}#{$n} {
           margin-left: ($n / 24) * 100%
@@ -117,13 +100,13 @@
       }
     }
     @media (min-width: 993px) and (max-width: 1200px) {
-      $class-prefix: col-pac-;
+      $class-prefix: col-pc-;
       @for $n from 1 through 24 {
         &.#{$class-prefix}#{$n} {
           width: ($n / 24) * 100%
         }
       }
-      $class-prefix: offset-pac-;
+      $class-prefix: offset-pc-;
       @for $n from 1 through 24 {
         &.#{$class-prefix}#{$n} {
           margin-left: ($n / 24) * 100%
@@ -144,7 +127,7 @@
         }
       }
     }
-
   }
+
 
 </style>
