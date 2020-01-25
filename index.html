@@ -27,7 +27,6 @@
     }
 
     #app {
-      margin: 20px;
     }
 
     body {
@@ -38,7 +37,7 @@
     .demo {
       background: #ddd;
       border: 1px solid #666;
-      height: 30px;
+      min-height: 50px;
     }
   </style>
 </head>
@@ -47,11 +46,14 @@
 
 
 <div id="app">
-  <g-row>
-      <g-col span="23" offset="1" :narrow-pc="{span:12, offset:12}">
-        <div class="demo"></div>
-      </g-col>
-  </g-row>
+  <g-layout style="height: 100vh;">
+    <g-sider class="demo">sider</g-sider>
+    <g-layout>
+      <g-header class="demo">header</g-header>
+      <g-content class="demo">content</g-content>
+      <g-footer class="demo">footer</g-footer>
+    </g-layout>
+  </g-layout>
 </div>
 
 <script src="./src/app.js"></script>
