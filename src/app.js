@@ -37,11 +37,10 @@ new Vue({
     message: 'hi'
   },
   created(){
-    this.$toast('我是 message')
   },
   methods:{
-    inputChange (e){
-      console.log(e.target.value)
+    showToast(){
+      this.$toast('我是 message')
     }
   }
 })
