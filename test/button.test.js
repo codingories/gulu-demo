@@ -16,7 +16,7 @@ describe('Button', () => {
     const Constructor = Vue.extend(Button)
     const vm = new Constructor({
       propsData: {
-         icon: 'settings'
+        icon: 'settings'
       }
     }).$mount()
     const useElement = vm.$el.querySelector('use')
