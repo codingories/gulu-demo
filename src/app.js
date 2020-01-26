@@ -36,11 +36,7 @@ new Vue({
     loading3: false,
     message: 'hi'
   },
-  created() {
-    // this.$toast('很完了',{
-    //   enableHtml: false
-    // })
-  },
+
   methods: {
     showToast() {
       this.$toast('你的智商需要充值', {
@@ -48,8 +44,7 @@ new Vue({
         enableHtml: false,
         closeButton: {
           text: '已充值',
-          callback(s) {
-            // toast.log() // toast组件传过来的
+          callback() {
             console.log('用户说他已经充值了')
           }
         }
