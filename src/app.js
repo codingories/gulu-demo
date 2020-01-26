@@ -36,11 +36,23 @@ new Vue({
     loading3: false,
     message: 'hi'
   },
-  created(){
+  created() {
+    this.$toast('很完了',{
+      enableHtml: false
+    })
   },
-  methods:{
-    showToast(){
-      this.$toast('我是 message')
+  methods: {
+    showToast() {
+      this.$toast('我是 message', {
+          closeButton: {
+            text: '知道了',
+            callback(toast) {
+              toast.log() // toast组件传过来的
+              console.log('用户说他知道了')
+            }
+          }
+        }
+      )
     }
   }
 })
