@@ -49,14 +49,15 @@ new Vue({
     },
     showToast(position) {
       this.$toast('你的智商需要充值', {
-        position,
-        enableHtml: false,
-        closeButton: {
-          text: '已充值',
-          callback() {
-            console.log('用户说他已经充值了')
-          }
-        }
+          position,
+          enableHtml: false,
+          closeButton: {
+            text: '已充值',
+            callback() {
+              console.log('用户说他已经充值了')
+            }
+          },
+          autoClose: 3
         }
       )
     }

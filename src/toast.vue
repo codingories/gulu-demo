@@ -18,12 +18,11 @@
     name: "GuluToast",
     props: {
       autoClose: {
-        type: Boolean,
-        default: true
-      },
-      autoCloseDelay: {
-        type: Number,
-        default: 5
+        type: [Boolean,Number],
+        default: 5,
+        validator(value){
+          return value === false || typeof value === 'number'
+        }
       },
       closeButton: {
         type: Object,
@@ -45,10 +44,9 @@
         }
       }
     },
-    created() {
-      // console.log(11111)
-      // console.log(this.closeButton.callback)
-      // this.closeButton.callback()
+    mounted() {
+      this.updateStyles();
+      this.execAutoClose();
     },
     computed: {
       toastClasses() {
@@ -57,22 +55,19 @@
         }
       }
     },
-    mounted() {
-      this.updateStyles();
-      this.execAutoClose();
-    },
     methods: {
-      updateStyles() {
+      updateStyles () {
+        this.$nextTick(() => {
+            this.$refs.line.style.height =
+              `${this.$refs.toast.getBoundingClientRect().height}px`
+        })
+      },
+      execAutoClose() {
         if (this.autoClose) {
           setTimeout(() => {
             this.close()
-          }, this.autoCloseDelay * 100000)
+          }, this.autoClose * 1000)
         }
-      },
-      execAutoClose() {
-        this.$nextTick(() => {
-          this.$refs.line.style.height = `${this.$refs.toast.getBoundingClientRect().height}px`
-        })
       },
       close() {
         this.$el.remove()
