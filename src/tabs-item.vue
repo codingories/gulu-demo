@@ -6,7 +6,13 @@
 
 <script>
   export default {
-    name: "GuluTabsItem"
+    name: "GuluTabsItem",
+    props: {
+      disabled: {
+        type: Boolean,
+        default: false
+      }
+    }
   }
 </script>
 
