@@ -12,10 +12,12 @@
   export default {
     name: "GuluTabsHead",
     inject: ['eventBus'],
-    created(){
+    mounted(){
       this.eventBus.$on('update:selected', (item, vm) => {
-        console.log(item)
-        console.log(vm)
+        let {width, height, top, left} = vm.$el.getBoundingClientRect()
+        this.$refs.line.style.width = `${width}px` // 宽度就会跟着我们点的元素的宽度变,
+        this.$refs.line.style.left = `${left}px` // 宽度变了我们再修改位置
+        // this.$refs.line.style.transform = `translateX(${left}px)` // 可以这样优化写来实现硬件3d加速
       })
     }
   }
@@ -28,13 +30,12 @@
     display: flex;
     height: $tab-height;
     justify-content: flex-start;
-    border: 1px solid red;
     position: relative;
     > .line {
       position: absolute;
       bottom: 0;
-      border-bottom: 10px solid $blue;
-      width: 100px;
+      border-bottom: 1px solid $blue;
+      transition: all 400ms;
     }
     > .actions-wrapper {
       margin-left: auto; // 这样写可以让按钮靠右
