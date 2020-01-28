@@ -32,14 +32,18 @@
       }
     },
     created(){
-      // this.$emit('update:selected', '这是 this $emit 出来的数据') // 这样写可以触发外面
-      // this.eventBus.$emit('update:selected', '这是 this event $emit 出来的数据') // 这样写不可以触发外面
-      // this.$emit('update:selected','xxx')
+
     },
     mounted(){
-      // this.$emit('update:selected', '这是 this $emit 出来的数据') // 这样写可以触发外面
-      this.eventBus.$emit('update:selected', this.selected) // 这样写不可以触发外面
-      // this.$emit('update:selected','xxx')
+      this.$children.forEach((vm)=>{
+        if(vm.$options.name === 'GuluTabsHead'){ // 找儿子
+          vm.$children.forEach((childVm)=>{ // 找孙子
+            if(childVm.$options.name === 'GuluTabsItem' && childVm.name === this.selected){
+              this.eventBus.$emit('update:selected', this.selected,childVm)
+            }
+          })
+        }
+      })
     }
   }
 </script>
