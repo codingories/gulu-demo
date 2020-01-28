@@ -35,6 +35,10 @@
 
     },
     mounted(){
+      if(this.$children.length===0){
+        // 这个$children是看子组件，不是子元素
+        console && console.warn && console.warn('tabs的子组件应该是tabs-head和tabs-pane,但你没有写子组件')
+      }
       this.$children.forEach((vm)=>{
         if(vm.$options.name === 'GuluTabsHead'){ // 找儿子
           vm.$children.forEach((childVm)=>{ // 找孙子
