@@ -39,18 +39,21 @@
 
 
 <div id="app" style="padding-top: 100px; padding-left: 100px;border: 1px solid red;">
-  <g-popover>
-    <template slot="content">
-      <div>popover内容1</div>
-    </template>
+  <div style="overflow:hidden; border: 1px solid green; padding: 5px">
+    <g-popover>
+      <template slot="content">
+        <div>popover内容1</div>
+      </template>
       <button>点我1</button>
-  </g-popover>
-  <g-popover>
-    <template slot="content">
-      <div>popover内容2</div>
-    </template>
+    </g-popover>
+    <g-popover>
+      <template slot="content">
+        <div>popover内容2</div>
+      </template>
       <button>点我2</button>
-  </g-popover>
+    </g-popover>
+  </div>
+
 </div>
 
 <script src="./src/app.js"></script>
