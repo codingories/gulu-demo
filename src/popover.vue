@@ -20,50 +20,37 @@
       }
     },
     methods: {
+      onClickDocument(e){
+        if ( this["$refs"]["popover"] && (this["$refs"]["popover"] &&
+          this["$refs"]["popover"].contains(e.target))) {return}
+        else {
+          this.close()
+        }
+      },
       positionContent() {
         document.body.appendChild(this["$refs"]["contentWrapper"])
         let {top, left} = this["$refs"]["triggerWrapper"].getBoundingClientRect()
         this["$refs"]["contentWrapper"].style.left = left + window.scrollX + "px"
         this["$refs"]["contentWrapper"].style.top = top + window.scrollY + "px"
       },
-      listenToDocument() {
-        let eventHandler = (e) => {
-          if (this["$refs"]["contentWrapper"].contains(e.target)) { // 这句话解决了点击内容消失的问题
-          } else {
-            this.visible = false
-            console.log('关闭')
-            document.removeEventListener("click", eventHandler)
-            console.log("关闭") // document事件引起的
-          }
-        }
-        document.addEventListener("click", eventHandler)
-      },
-      listenToDocument(){
-        let eventHandler = (e) => {
-          if ( this["$refs"]["contentWrapper"] &&
-            this["$refs"]["contentWrapper"].contains(e.target)) { // 这句话解决了点击内容消失的问题
-            return
-          } else {
-            this.visible = false
-            document.removeEventListener("click", eventHandler)
-            console.log("关闭") // document事件引起的
-          }
-        }
-        document.addEventListener("click", eventHandler)
-      },
-      opShow(){
+
+      open(){
+        this.visible = true
         setTimeout(() => {
           this.positionContent()
-          this.listenToDocument()
+          document.addEventListener("click", this.onClickDocument)
         })
+      },
+      close(){
+        this.visible = false
+        document.removeEventListener("click", this.onClickDocument)
       },
       onClick(event) {
         if (this["$refs"]["triggerWrapper"].contains(event.target)) {
-          this.visible = !this.visible
           if (this.visible === true) {
-            this.opShow()
+            this.close()
           } else {
-            console.log('关闭')
+            this.open()
           }
         }
       }
