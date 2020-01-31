@@ -38,63 +38,12 @@
 
 
 
-<div id="app">
-  <div style="overflow:hidden; padding-top: 150px; padding-left: 100px">
-    <g-popover position="bottom">
-      <template slot="content" slot-scope="{close}">
-        <div><g-button @click="close">关闭</g-button></div>
-      </template>
-      <g-button>点我1</g-button>
-<!--      <button>点我</button>-->
-
-    </g-popover>
-    <g-popover position="top" >
-      <template slot="content">
-        <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eveniet illo inventore laborum neque perspiciatis tenetur ut velit. Accusantium dolor dolorem eligendi enim eum, hic nam odio, officiis, soluta ullam voluptatem.</div>
-      </template>
-      <g-button>点我2</g-button>
-    </g-popover>
-    <g-popover position="left" >
-      <template slot="content">
-        <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eveniet illo inventore laborum neque perspiciatis tenetur ut velit. Accusantium dolor dolorem eligendi enim eum, hic nam odio, officiis, soluta ullam voluptatem.</div>
-      </template>
-      <g-button>点我3</g-button>
-    </g-popover>
-    <g-popover position="right">
-      <template slot="content">
-        <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eveniet illo inventore laborum neque perspiciatis tenetur ut velit. Accusantium dolor dolorem eligendi enim eum, hic nam odio, officiis, soluta ullam voluptatem.</div>
-      </template>
-      <g-button>点我4</g-button>
-    </g-popover>
-  </div>
-  <div style="overflow:hidden; padding: 100px">
-    <g-popover position="bottom" trigger="hover">
-      <template slot="content">
-        <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque autem consequuntur corporis cum esse ex fugiat illo, maxime mollitia, obcaecati porro quidem repellat reprehenderit sint totam vel veritatis voluptas voluptatum.</div>
-        <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque autem consequuntur corporis cum esse ex fugiat illo, maxime mollitia, obcaecati porro quidem repellat reprehenderit sint totam vel veritatis voluptas voluptatum.</div>
-      </template>
-      <g-button>点我1</g-button>
-    </g-popover>
-    <g-popover position="top" trigger="hover">
-      <template slot="content">
-        <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eveniet illo inventore laborum neque perspiciatis tenetur ut velit. Accusantium dolor dolorem eligendi enim eum, hic nam odio, officiis, soluta ullam voluptatem.</div>
-      </template>
-      <g-button>点我2</g-button>
-    </g-popover>
-    <g-popover position="left" trigger="hover">
-      <template slot="content">
-        <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eveniet illo inventore laborum neque perspiciatis tenetur ut velit. Accusantium dolor dolorem eligendi enim eum, hic nam odio, officiis, soluta ullam voluptatem.</div>
-      </template>
-      <g-button>点我3</g-button>
-    </g-popover>
-    <g-popover position="right" trigger="hover">
-      <template slot="content">
-        <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eveniet illo inventore laborum neque perspiciatis tenetur ut velit. Accusantium dolor dolorem eligendi enim eum, hic nam odio, officiis, soluta ullam voluptatem.</div>
-      </template>
-      <g-button>点我4</g-button>
-    </g-popover>
-  </div>
-
+<div id="app" style="padding: 100px">
+  <g-collapse>
+    <g-collapse-item title="标题1">内容1</g-collapse-item>
+    <g-collapse-item title="标题2">内容2</g-collapse-item>
+    <g-collapse-Item title="标题3">内容3</g-collapse-Item>
+  </g-collapse>
 </div>
 
 <script src="./src/app.js"></script>
