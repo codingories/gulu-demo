@@ -41,9 +41,8 @@
 <div id="app">
   <div style="overflow:hidden; padding-top: 150px; padding-left: 100px">
     <g-popover position="bottom">
-      <template slot="content">
-        <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque autem consequuntur corporis cum esse ex fugiat illo, maxime mollitia, obcaecati porro quidem repellat reprehenderit sint totam vel veritatis voluptas voluptatum.</div>
-        <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque autem consequuntur corporis cum esse ex fugiat illo, maxime mollitia, obcaecati porro quidem repellat reprehenderit sint totam vel veritatis voluptas voluptatum.</div>
+      <template slot="content" slot-scope="{close}">
+        <div><g-button @click="close">关闭</g-button></div>
       </template>
       <g-button>点我1</g-button>
     </g-popover>
