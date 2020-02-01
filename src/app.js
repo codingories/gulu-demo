@@ -20,7 +20,6 @@ import TabsPane from './tabs-pane'
 import Popover from './popover'
 import Collapse from './collapse'
 import CollapseItem from './collapse-item'
-console.log(CollapseItem)
 
 Vue.component('g-button', Button)
 Vue.component('g-icon', Icon)
@@ -50,9 +49,8 @@ Vue.use(plugin)
 new Vue({
   el: '#app',
   data: {
-    selectedTab: 'sports'
+    selectedTab: ['2','1']
   },
-
   methods: {
     yyy(data){
       console.log('yyy')

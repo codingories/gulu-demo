@@ -24,36 +24,34 @@
     },
     data() {
       return {
-        open: false
+        open: false,
       }
     },
     inject: ['eventBus'],
 
     mounted(){
-      this.eventBus && this.eventBus.$on('update:selected', (name)=>{
-        if (name !== this.name){
-          this.close()
+      this.eventBus && this.eventBus.$on('update:selected', (names)=>{
+        // 监听eventBus,只要他爸爸要说更新，他就更新
+        if (names.indexOf(this.name )>= 0){
+          this.open = true
         }else{
-          this.show()
+            this.open = false
         }
       })
     },
     methods:{
       toggle(){
         if(this.open) {
-          this.open = false
+          // 这里也没有修改自己的OPEN，而是在mounted中等爸爸通知我们修改open,所以他的open永远是爸爸在操作，儿子不操作
+          this.eventBus &&this.eventBus.$emit('update:removeSelected', this.name)
+          // 他自己触发一个意图，打算移除一个更新
+          // 移除一个被选中的东西
         }else{
-          this.eventBus && this.eventBus.$emit('update:selected', this.name)
+          this.eventBus && this.eventBus.$emit('update:addSelected', this.name)
+          // 他自己触发一个意图，打算添加一个更新
         }
       },
-      close(){
-        this.open=false;
-      },
-      show(){
-        this.open = true
-      }
     }
-
   }
 </script>
 
