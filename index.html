@@ -15,16 +15,16 @@
     img {max-width:100%}
 
     /*设置变量*/
-    :root {
-      --button-height: 32px;
-      --font-size: 14px;
-      --button-bg: white;
-      --button-active-bg: #eee;
-      --border-radius: 4px;
-      --color: #333;
-      --border-color: #999;
-      --border-color-hover: #666;
-    }
+    /*:root {*/
+    /*  --button-height: 32px;*/
+    /*  --font-size: 14px;*/
+    /*  --button-bg: white;*/
+    /*  --button-active-bg: #eee;*/
+    /*  --border-radius: 4px;*/
+    /*  --color: #333;*/
+    /*  --border-color: #999;*/
+    /*  --border-color-hover: #666;*/
+    /*}*/
 
     #app {
     }
@@ -43,6 +43,8 @@
   <g-button icon="setting">默认按钮</g-button>
   <g-button :loading="true">默认按钮</g-button>
   <g-button disabled>默认按钮</g-button>
+  <g-icon :name="'setting'"></g-icon>
+  <g-icon :name="'left'"></g-icon>
 
   <g-collapse :selected="selectedTab" :selected.sync="selectedTab" single>
     <g-collapse-item title="标题1" name="1">内容1 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus consequatur </g-collapse-item>

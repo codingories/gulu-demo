@@ -1,6 +1,7 @@
 <template>
   <svg class="g-icon">
-    <use :xlink:href=`#i${name}`></use>
+    <use :xlink:href="`#i${name}`"></use>
+<!--    <use :xlink:href="'#i'+name"></use>-->
   </svg>
 </template>
 

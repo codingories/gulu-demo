@@ -6,7 +6,7 @@
   >
     <g-icon class="icon" v-if="icon && !loading" :name="icon"></g-icon>
     <g-icon class="loading icon" v-if="loading" name="loading"></g-icon>
-    <div class="content">
+    <div class="content1">
       <slot></slot>
     </div>
   </button>
@@ -14,6 +14,7 @@
 <script>
 // import Vue from 'vue'
 import Icon from "./icon";
+
 // Vue.component('g-icon',Icon) // 全局注册的方法不好，该用局部注册
 export default {
   name: 'GuluButton',
@@ -78,7 +79,7 @@ $border-color-hover: #666;
   &:focus {
     outline: none;
   }
-  > .content {
+  > .content1 {
     order: 2;
   }
   > .icon {
@@ -87,7 +88,7 @@ $border-color-hover: #666;
   }
 
   &.icon-right {
-    > .content {
+    > .content1 {
       order: 1;
     }
     > .icon {
