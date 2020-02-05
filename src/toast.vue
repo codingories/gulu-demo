@@ -129,6 +129,7 @@
     transform: translate(-50%);
     &.position-top {
       top: 0;
+      z-index: 20;
       .toast {
         border-top-left-radius:0;
         border-top-right-radius: 0;

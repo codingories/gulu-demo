@@ -1,5 +1,5 @@
 <template>
-  <div class="tabs-head">
+  <div class="tabs-head" ref="head">
     <slot></slot>
     <div class="line" ref="line"></div>
     <div class="actions-wrapper">
@@ -12,13 +12,19 @@
   export default {
     name: "GuluTabsHead",
     inject: ['eventBus'],
-    mounted(){
+    mounted() {
       this.eventBus.$on('update:selected', (item, vm) => {
-        let {width,left} = vm.$el.getBoundingClientRect()
-        this.$refs.line.style.width = `${width}px` // 宽度就会跟着我们点的元素的宽度变,
-        this.$refs.line.style.left = `${left}px` // 宽度变了我们再修改位置
-        // this.$refs.line.style.transform = `translateX(${left}px)` // 可以这样优化写来实现硬件3d加速
+        this.updateLinePosition(vm)
       })
+    },
+    methods: {
+      updateLinePosition (selectedVm) {
+        let {width, left} = selectedVm.$el.getBoundingClientRect()
+        let {left: left2} = this.$refs.head.getBoundingClientRect()
+        this.$refs.line.style.width = `${width}px` // 宽度就会跟着我们点的元素的宽度变,
+        this.$refs.line.style.left = `${left - left2}px` // 宽度变了我们再修改位置
+        // this.$refs.line.style.transform = `translateX(${left}px)` // 可以这样优化写来实现硬件3d加速
+      }
     }
   }
 </script>
@@ -33,12 +39,14 @@
     justify-content: flex-start;
     position: relative;
     border-bottom: 1px solid $border-color;
+
     > .line {
       position: absolute;
       bottom: 0;
       border-bottom: 1px solid $blue;
       transition: all 400ms;
     }
+
     > .actions-wrapper {
       margin-left: auto; // 这样写可以让按钮靠右
       display: flex;
